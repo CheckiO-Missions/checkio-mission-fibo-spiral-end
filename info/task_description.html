@@ -1,0 +1,70 @@
+<!-- Describe task in general -->
+<p>
+    I believe, you have heard about <a target="_blank" href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci numbers</a>, which form a respective sequence, where each number is the sum of the two preceding ones. The sequence commonly starts from 0 and 1:
+</p>
+<pre>0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...</pre>
+<table>
+    <tr>
+        <td>
+            <p>
+                The sequence may be shown as a tiling with squares whose side lengths are successive Fibonacci numbers. For this mission we use exactly this position of squares:
+            </p>
+        </td>
+        <td>
+            <p>
+                If you follow numbers, you see that they form a spiral. Indeed, on the next image the Fibonacci spiral is build: an approximation of the golden spiral, created by drawing circular arcs, connecting the opposite corners of squares in the Fibonacci tiling:
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center;">
+                <a target="_blank" href="https://commons.wikimedia.org/wiki/File:Fibonacci_Squares.svg#/media/File:Fibonacci_Squares.svg"><img style="max-height: 200px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Fibonacci_Squares.svg/1200px-Fibonacci_Squares.svg.png" alt="Fibonacci Squares.svg">
+                </a>
+            </p>
+        </td>
+        <td>
+            <p style="text-align: center;">
+                <a target="_blank" href="https://commons.wikimedia.org/wiki/File:Fibonacci_Spiral.svg#/media/File:Fibonacci_Spiral.svg"><img style="max-height: 200px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Fibonacci_Spiral.svg/1200px-Fibonacci_Spiral.svg.png" alt="Fibonacci Spiral.svg">
+                </a>
+            </p>
+        </td>
+    </tr>
+</table>
+<p>
+    Now let's put x-axis and y-axis on the image with 0 point in the start of the spiral. Each numbered dot marked is the corner of the square (or the very start of the spiral) of i-th number, where the spiral ends if i-th number is the last one:
+</p>
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}Spiral.png" alt="example" style="max-height: 300px"/>
+</p>
+<p>
+    So, for the given sequence number, your function should return the coordinates <b>[x, y]</b> of the end of the spiral (square corner) for the respective Fibonacci number. let's look at the table:
+</p>
+<p>
+    <table>
+        <tr>
+            <th>Sequence number (function input)</th><td> </td><td>0</td><td> </td><td>1</td><td> </td><td>2</td><td> </td><td>3</td><td> </td><td>4</td><td> </td><td>5</td><td> </td><td>6</td><td> </td><td>7</td><td> </td><td>8</td><td> </td><td>...</td>
+        </tr>
+        <tr>
+            <th>Respective Fibonacci number</th><td> </td><td>0</td><td> </td><td>1</td><td> </td><td>1</td><td> </td><td>2</td><td> </td><td>3</td><td> </td><td>5</td><td> </td><td>8</td><td> </td><td>13</td><td> </td><td>21</td><td> </td><td>...</td>
+        </tr>
+        <tr>
+            <th>Coordinates of the corner (spiral's end)</th><td> </td><td>[0, 0]</td><td> </td><td>[1, -1]</td><td> </td><td>[2, 0]</td><td> </td><td>[0, 2]</td><td> </td><td>[-3, -1]</td><td> </td><td>[2, -6]</td><td> </td><td>[10, 2]</td><td> </td><td>[-3, 15]</td><td> </td><td>[-24, -6]</td><td> </td><td>...</td>
+        </tr>
+    </table>
+</p>
+<!-- Explain input and output values -->
+<p>
+    <strong>Input:</strong> {% if is_js %}Number{% else %}Integer{% endif %}.
+</p>
+
+<p>
+    <strong>Output:</strong> {% if is_js %}Array of two numbers{% else %}List of two integers{% endif %}. 
+</p>
+
+<p>
+    <strong>Examples:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+

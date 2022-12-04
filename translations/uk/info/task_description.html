@@ -1,0 +1,71 @@
+<!-- Describe task in general -->
+<p>
+    Я впевнений, ти чув про <a target="_blank" href="https://uk.wikipedia.org/wiki/Послідовність_Фібоначчі">числа Фібоначчі</a>, які утворюють відповідну послідовність, де кожне число є сумою двох попередніх. Послідовність зазвичай починається з 0 і 1:
+</p>
+<pre>0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...</pre>
+
+<table>
+    <tr>
+        <td>
+            <p>
+                Послідовність може бути показана як плитка з квадратами, бічні довжини яких є послідовними числами Фібоначчі. Для цієї місії ми використаємо саме таку позицію квадратів:
+            </p>
+        </td>
+        <td><p>
+                Якщо ти прослідкуєш за цифрами, то побачиш, що вони утворюють спіраль. Дійсно, на наступному зображенні побудована спіраль Фібоначчі: наближення Золотої спіралі, створеної круглими дугами, що з'єднують протилежні кути квадратів у плитці Фібоначчі:
+            </p>
+            
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p style="text-align: center;">
+                <a target="_blank" href="https://commons.wikimedia.org/wiki/File:Fibonacci_Squares.svg#/media/File:Fibonacci_Squares.svg"><img style="max-height: 200px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Fibonacci_Squares.svg/1200px-Fibonacci_Squares.svg.png" alt="Fibonacci Squares.svg">
+                </a>
+            </p>
+        </td>
+        <td>
+            <p style="text-align: center;">
+                <a target="_blank" href="https://commons.wikimedia.org/wiki/File:Fibonacci_Spiral.svg#/media/File:Fibonacci_Spiral.svg"><img style="max-height: 200px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Fibonacci_Spiral.svg/1200px-Fibonacci_Spiral.svg.png" alt="Fibonacci Spiral.svg">
+                </a>
+            </p>
+        </td>
+    </tr>
+</table>
+<p>
+    Тепер давайте накладемо вісь <b>x</b> і вісь <b>y</b> на зображення з 0 точкою у початку спіралі. Кожна пронумерована точка - це кут квадрата (або самий початок спіралі) для числа під порядковим номером <b>і</b>, де спіраль закінчується, якщо це число останнє:
+</p>
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}Spiral.png" alt="example" style="max-height: 300px"/>
+</p>
+<p>
+    Отже, для заданого номера послідовності твоя функція повинна повернути координати <b>[x, y]</b> кінця спіралі (кут квадрата) для відповідного числа Фібоначчі. Давай подивимось на таблицю:
+</p>
+<p>
+    <table>
+        <tr>
+            <th>Порядковий номер (вхід функції)</th><td> </td><td>0</td><td> </td><td>1</td><td> </td><td>2</td><td> </td><td>3</td><td> </td><td>4</td><td> </td><td>5</td><td> </td><td>6</td><td> </td><td>7</td><td> </td><td>8</td><td> </td><td>...</td>
+        </tr>
+        <tr>
+            <th>Відповідне число Фібоначчі</th><td> </td><td>0</td><td> </td><td>1</td><td> </td><td>1</td><td> </td><td>2</td><td> </td><td>3</td><td> </td><td>5</td><td> </td><td>8</td><td> </td><td>13</td><td> </td><td>21</td><td> </td><td>...</td>
+        </tr>
+        <tr>
+            <th>Координати кута (кінець спіралі)</th><td> </td><td>[0, 0]</td><td> </td><td>[1, -1]</td><td> </td><td>[2, 0]</td><td> </td><td>[0, 2]</td><td> </td><td>[-3, -1]</td><td> </td><td>[2, -6]</td><td> </td><td>[10, 2]</td><td> </td><td>[-3, 15]</td><td> </td><td>[-24, -6]</td><td> </td><td>...</td>
+        </tr>
+    </table>
+</p>
+<!-- Explain input and output values -->
+<p>
+    <strong>Вхідні дані:</strong> Ціле число.
+</p>
+
+<p>
+    <strong>Вихідні дані:</strong> {% if is_js %}Масив{% else %}Список{% endif %} з двох цілих чисел. 
+</p>
+
+<p>
+    <strong>Приклади:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
