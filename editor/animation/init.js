@@ -19,6 +19,16 @@ requirejs(['ext_editor_io2', 'jquery_190', 'raphael_210'],
                     'stroke': '#4094c7',
                     'arrow-end': 'block-wide-long',
                 },
+                grid: {
+                    'stroke-width': '0.3px',
+                    'stroke': '#4094c7',
+                },
+                square: {
+                    'stroke-width': '1px',
+                    'stroke': '#F0801A',
+                    'opacity': '0.7',
+                    'fill': '#FABA00',
+                },
             }
 
             /*----------------------------------------------*
@@ -49,6 +59,14 @@ requirejs(['ext_editor_io2', 'jquery_190', 'raphael_210'],
             const max_abs = arr => arr.reduce((a, b) => Math.max(Math.abs(a), Math.abs(b)))
             const coords = fibo_spiral_end(input)
             const max_coord = Math.max(3, max_abs([].concat(...coords))) * 1.2
+            let [xs, ys] = [[],[]]
+            for (let i = 0; i < coords.length; i += 1) {
+                const [x, y] = coords[i]
+                xs.push(x)
+                ys.push(y)
+            }
+            const [min_x, max_x, min_y, max_y]
+                = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)]
             const grid_size_px = 200
             const os = 15
             const scale = (grid_size_px / 2) / max_coord
@@ -62,6 +80,18 @@ requirejs(['ext_editor_io2', 'jquery_190', 'raphael_210'],
 
             /*----------------------------------------------*
              *
+             * draw square
+             *
+             *----------------------------------------------*/
+            paper.rect(
+                (min_x+max_coord)*scale+os,
+                (max_coord-max_y)*scale+os,
+                Math.abs(max_x-min_x)*scale,
+                Math.abs(max_y-min_y)*scale
+            ).attr(attr.square)
+
+            /*----------------------------------------------*
+             *
              * draw axis
              *
              *----------------------------------------------*/
@@ -70,6 +100,23 @@ requirejs(['ext_editor_io2', 'jquery_190', 'raphael_210'],
 
             // vertical
             paper.path(['M', grid_size_px/2+os, grid_size_px+os, 'v', -grid_size_px]).attr(attr.axis)
+
+            /*----------------------------------------------*
+             *
+             * draw grid
+             *
+             *----------------------------------------------*/
+            // horizontal
+            for (let i = 1; i <= max_coord; i += Math.max(1, max_coord/30)) {
+                paper.path(['M', os, grid_size_px/2+os-scale*i, 'h', grid_size_px]).attr(attr.grid)
+                paper.path(['M', os, grid_size_px/2+os+scale*i, 'h', grid_size_px]).attr(attr.grid)
+            }
+            
+            // vertical
+            for (let i = 1; i <= max_coord; i += Math.max(1, max_coord/30)) {
+                paper.path(['M', grid_size_px/2+os-scale*i, grid_size_px+os, 'v', -grid_size_px]).attr(attr.grid)
+                paper.path(['M', grid_size_px/2+os+scale*i, grid_size_px+os, 'v', -grid_size_px]).attr(attr.grid)
+            }
 
             /*----------------------------------------------*
              *
